@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Website</title>
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Judson&display=swap" rel="stylesheet">
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                screens: {
+                    xl: { "max": '1200px' },
+                    lg: { "max": '992px' },
+                    md: { "max": '768px' },
+                    sm: { "max": '576px' },
+                },
+                extend: {
+                    backgroundImage: {
+                        'header-img': "url('/img/header.jpg')",
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-['Judson'] m-0 p-0">
+    <header class="bg-header-img bg-center bg-fixed bg-cover relative w-full h-screen grid">
+        <div class="nav-bar bg-[rgba(0,0,0,0.4)] px-8 h-14 flex justify-between items-center">
+            <div class="logo">
+                <img src="./img/E-commerce.png" alt="logo" class="lg:w-32">
+            </div>
+            <ul class="menu flex lg:hidden">
+                <div class="inline-block">
+                    <p
+                        class="border rounded py-1 px-8 text-lg text-white transition-all duration-400 hover:bg-gray-400 hover:cursor-pointer">
+                        <a href="./cart.html">Shopping Cart</a>
+                    </p>
+                </div>
+                <li><a class="text-white text-2xl px-4 hover:text-gray-300" href="#">Home</a></li>
+                <li><a class="text-white text-2xl px-4 hover:text-gray-300" href="#">Contact</a></li>
+                <li><a class="text-white text-2xl px-4 hover:text-gray-300" href="#">About</a></li>
+            </ul>
+            <div class="header-icon hidden text-white text-2xl lg:block">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+        <div class="text-center">
+            <h1 class="text-6xl p-4 font-black text-black lg:text-5xl lg:text-bold">E-commerce <span
+                    class="text-white">Product</span> Website</h1>
+            <button
+                class="py-3 px-6 border rounded bg-gray-300 transition-all duration-500 hover:bg-gray-700 hover:text-white">PURCHASE</button>
+        </div>
+    </header>
+    <main>
+        <div class="max-w-[70rem] m-auto px-4">
+            <div class="flex flex-col justify-center items-center">
+                <h2 class="text-5xl mt-14">Products</h2>
+                <div class="text-center">
+                    <button
+                        class="all-btn m-2 py-2 w-20 border rounded transition-all duration-300 hover:bg-gray-300">All
+                    </button>
+                    <button
+                        class="laptops-btn m-2 py-2 w-20 border rounded transition-all duration-300 hover:bg-gray-300">Laptops
+                    </button>
+                    <button
+                        class="mobiles-btn m-2 py-2 w-20 border rounded transition-all duration-300 hover:bg-gray-300">Mobiles
+                    </button>
+                    <button
+                        class="ebooks-btn m-2 py-2 w-20 border rounded transition-all duration-300 hover:bg-gray-300">E-books
+                    </button>
+                </div>
+            </div>
+            <div class="products-container grid grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+                <!-- <div class="product m-3 border rounded-md h-64 relative overflow-hidden">
+                    <div class="w-full h-5/6 overflow-hidden">
+                        <img src="./img/laptop-1.jpg"
+                            class="rounded-tr-md rounded-tl-md w-full h-full object-cover transition-all duration-700 hover:scale-110">
+                        <i data-icon-id="1"
+                            class="fa-solid fa-cart-shopping inline-block absolute -bottom-2 -right-14 z-10 text-lg bg-white px-4 py-3 rounded-tl-3xl transition-all duration-500"></i>
+                    </div>
+                    <div class="flex justify-between items-center px-4 py-2">
+                        <div class="title">Laptop</div>
+                        <div class="price">$170</div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </main>
+    <footer class="text-center mt-10 p-4 border-t">
+        <p>&copy;2023 All rights reserved | This template is made with &#x2661 by <span class="text-slate-500">ZK</span>
+        </p>
+    </footer>
+    <!-- js -->
+    <script src="js/styles.js"></script>
+    <!-- swiper -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</body>
+
+</html>
