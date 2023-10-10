@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,14 +28,27 @@
                 },
                 extend: {
                     backgroundImage: {
-                        'cart-img': "url('/img/shopping-cart-page.jpg')",
+                        'cart-img': "url('./img/shopping-cart-page.jpg')",
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-cart-img w-full h-screen bg-center bg-cover">
+
+<body class="font-['Judson']">
+    <div class="bg-cart-img w-full h-screen bg-center bg-cover flex justify-center items-center">
+        <div class="products-basket w-[50rem] h-80 bg-gray-200 rounded px-10">
+            <!-- <div class="product-basket py-8 flex justify-between items-center border-b border-gray-500">
+                <div class="flex items-center">
+                    <img src="./img/laptop-1.jpg" class="h-16 w-16 rounded">
+                    <div class="product-basket-title pl-8 text-lg">Laptop</div>
+                </div>
+                <button class="product-basket-btn data-basket-id="1" rounded bg-red-500 py-3 px-16 text-white text-lg hover:bg-red-600">Remove</button>
+            </div> -->
+        </div>
+    </div>
 
 </body>
+
 </html>

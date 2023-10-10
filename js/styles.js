@@ -6,9 +6,9 @@ let icon = document.querySelector(".header-icon i");
 menuIcon.addEventListener("click", function () {
   if (icon.classList.contains("fa-bars")) {
     icon.classList.replace("fa-bars", "fa-times");
-    // styles of menu when it's in lg size 
+    // styles of menu when it's in lg size
     menu.style.cssText =
-      "display:block; position:absolute; left:0; top:2.5rem; padding-left:1rem; padding-top:0.5rem; background-color:rgba(0,0,0,0.4); width:100%; height:max-content; transition:all 0.5s;";
+      "display:block; position:absolute; left:0; top:3.4rem; padding-left:1rem; padding-top:0.5rem; background-color:rgba(0,0,0,0.4); width:100%; height:max-content; transition:all 0.5s;";
   } else {
     icon.classList.replace("fa-times", "fa-bars");
     menu.style.display = "none";
@@ -116,7 +116,7 @@ let productsArray = [
 ];
 let productsContainer = document.querySelector(".products-container");
 
-// insert html for the respective products in array 
+// insert html for the respective products in array
 function createProductCard(products) {
   productsContainer.innerHTML = "";
 
@@ -143,7 +143,7 @@ const laptopBtn = document.querySelector(".laptops-btn");
 const mobileBtn = document.querySelector(".mobiles-btn");
 const ebookBtn = document.querySelector(".ebooks-btn");
 
-// shows all the products 
+// shows all the products
 allBtn.addEventListener("click", function () {
   let allFilter = productsArray.filter(function (all) {
     return all.label;
@@ -151,7 +151,7 @@ allBtn.addEventListener("click", function () {
   createProductCard(allFilter);
 });
 
-// shows only laptops 
+// shows only laptops
 laptopBtn.addEventListener("click", function () {
   let laptopFilter = productsArray.filter(function (laptop) {
     return laptop.label === "laptop";
@@ -159,7 +159,7 @@ laptopBtn.addEventListener("click", function () {
   createProductCard(laptopFilter);
 });
 
-// shows only mobiles 
+// shows only mobiles
 mobileBtn.addEventListener("click", function () {
   let mobileFilter = productsArray.filter(function (mobile) {
     return mobile.label === "mobile";
@@ -167,7 +167,7 @@ mobileBtn.addEventListener("click", function () {
   createProductCard(mobileFilter);
 });
 
-// shows only e-books 
+// shows only e-books
 ebookBtn.addEventListener("click", function () {
   let ebookFilter = productsArray.filter(function (ebook) {
     return ebook.label === "e-book";
@@ -177,17 +177,17 @@ ebookBtn.addEventListener("click", function () {
 
 // shopping cart
 let products = document.querySelectorAll(".product");
-// shopping cart icon appears 
+// shopping cart icon appears
 function productCartIcon(e) {
   let cartIcon = e.currentTarget.querySelector(".fa-cart-shopping");
   cartIcon.style.cssText = "bottom:2.5rem; right:0;";
 }
-// shopping cart icon disappears 
+// shopping cart icon disappears
 function resetCartIcon(e) {
   let cartIcon = e.currentTarget.querySelector(".fa-cart-shopping");
   cartIcon.style.cssText = "bottom:-0.5rem; right:-3.5rem;";
 }
-// the respective events works for both touch and mouse 
+// the respective events works for both touch and mouse
 products.forEach(function (product) {
   product.addEventListener("mouseenter", productCartIcon);
   product.addEventListener("touchstart", productCartIcon);
@@ -202,17 +202,38 @@ let cartIcons = document.querySelectorAll(".fa-cart-shopping");
 cartIcons.forEach(function (icon) {
   icon.addEventListener("click", function () {
     let productId = icon.getAttribute("data-icon-id");
-    // find in products array 
+    // find in products array
     let productToAdd = productsArray.find(function (product) {
       return product.id == productId;
     });
-    // check whether it's already in basket or not 
-    let isInBasket = userBasket.some(function(product) {
-      return product.id == productToAdd.id
-    })
-    // add to basket when the product doesn't exist in it 
-    if(!isInBasket) {
-      userBasket.push(productToAdd)
+    // check whether it's already in basket or not
+    let isInBasket = userBasket.some(function (product) {
+      return product.id == productToAdd.id;
+    });
+    // add to basket when the product doesn't exist in it
+    if (!isInBasket) {
+      userBasket.push(productToAdd);
+      console.log(userBasket);
     }
   });
 });
+
+////////////// Basket ////////////////
+
+// create products in basket 
+let productsBasket = document.querySelector(".products-basket");
+function createProductInBasket(basket) {
+  basket.forEach(function (product) {
+    productsBasket.innerHTML = "";
+    productsBasket.insertAdjacentHTML(
+      "beforeend",
+      '<div class="product-basket py-8 flex justify-between items-center border-b border-gray-500"><div class="flex items-center"><img src="' +
+        product.img +
+        '" class="h-16 w-16 rounded"><div class="product-basket-title pl-8 text-lg">' +
+        product.title +
+        '</div></div><button class="product-basket-btn data-basket-id="' +
+        product.id +
+        '" rounded bg-red-500 py-3 px-16 text-white text-lg hover:bg-red-600">Remove</button></div>'
+    );
+  });
+}
