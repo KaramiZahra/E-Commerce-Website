@@ -213,8 +213,8 @@ cartIcons.forEach(function (icon) {
     // add to basket when the product doesn't exist in it
     if (!isInBasket) {
       userBasket.push(productToAdd);
-      console.log(userBasket);
     }
+    setLocalStorage(userBasket)
   });
 });
 
@@ -223,8 +223,9 @@ cartIcons.forEach(function (icon) {
 // create products in basket 
 let productsBasket = document.querySelector(".products-basket");
 function createProductInBasket(basket) {
+  productsBasket.innerHTML = "";
+  
   basket.forEach(function (product) {
-    productsBasket.innerHTML = "";
     productsBasket.insertAdjacentHTML(
       "beforeend",
       '<div class="product-basket py-8 flex justify-between items-center border-b border-gray-500"><div class="flex items-center"><img src="' +
@@ -237,3 +238,19 @@ function createProductInBasket(basket) {
     );
   });
 }
+createProductInBasket(userBasket)
+
+// set local storage
+function setLocalStorage(products) {
+  localStorage.setItem('user-basket', JSON.stringify(products))
+}
+//get local storage
+window.addEventListener('load', function() {
+  let getBasket = JSON.parse(localStorage.getItem('user-basket'))
+  if (getBasket) {
+    userBasket = getBasket
+  } else {
+    userBasket = []
+  }
+  createProductInBasket(userBasket)
+})
